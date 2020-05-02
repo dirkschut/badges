@@ -46,6 +46,13 @@ function renderBadges(badgesToRender){
     $("main").html(badgesString);
 }
 
+//Renders the about page
+function renderAbout(){
+    var aboutString = "<h1>About</h1>";
+    aboutString += "<p>This is a project by me, <a href='https://github.com/mrDLSable'>Dirk Schut</a>, to showcase my <a href='https://openbadges.org/'> Open Badges</a> badges, and to show that I have some competency in web development for the <a href='https://badgecollect.app/badges/28f940d61f913065a2a0aa34c2b3c1cd'>Introductie Web & Mobile</a> (Introduction Web & Mobile) badge.</p>";
+    $("main").html(aboutString);
+}
+
 //Load the page with the given page ID
 function loadPage(pageID){
     console.log("loading page: " + pageID);
@@ -53,6 +60,9 @@ function loadPage(pageID){
     switch(pageID){
         case "allBadges":
             renderBadges(badgeData);
+            break;
+        case "about":
+            renderAbout();
             break;
         default:
             console.log("Unknown page ID: " + pageID + ".");
@@ -63,5 +73,5 @@ function loadPage(pageID){
 
 //Waits for the page to be loaded
 $(document).ready(function() {
-    loadPage(localStorage.getItem("pageID"));    
+    loadPage(localStorage.getItem("pageID"));
 });
