@@ -1,6 +1,7 @@
 .myBadge{
-    width: 400px;
-    height: 200px;
+    width: 380px;
+    min-width: 380px;
+    height: 220px;
     border: 0px;
 }
 
