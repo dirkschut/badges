@@ -34,7 +34,7 @@ function renderBadges(badgesToRender){
     for(badgeName in badgesToRender){
         switch(badgesToRender[badgeName].type){
             case TYPE_BADGR:
-                badgesString += "<iframe class='col-md-4 myBadge' src='" + badgesToRender[badgeName] + "' title='" + badgeName + "'></iframe>";
+                badgesString += "<iframe class='col-md-4 myBadge' src='" + badgesToRender[badgeName].src + "' title='" + badgeName + "'></iframe>";
                 break;
             case TYPE_LOCAL:
                 badgesString += "<div class='col-md-4 myBadge testBadge'><h3>" + badgeName + "</h3></div>";
