@@ -46,7 +46,22 @@ function renderBadges(badgesToRender){
     $("main").html(badgesString);
 }
 
+//Load the page with the given page ID
+function loadPage(pageID){
+    console.log("loading page: " + pageID);
+    localStorage.setItem("pageID", pageID)
+    switch(pageID){
+        case "allBadges":
+            renderBadges(badgeData);
+            break;
+        default:
+            console.log("Unknown page ID: " + pageID + ".");
+            loadPage("allBadges");
+            break;
+    }
+}
+
 //Waits for the page to be loaded
 $(document).ready(function() {
-    renderBadges(badgeData);
+    loadPage(localStorage.getItem("pageID"));    
 });
