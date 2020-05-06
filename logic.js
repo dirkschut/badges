@@ -12,6 +12,11 @@ const badgeData = {
         src: "https://api.badgr.io/public/assertions/nhztqxJeT1OaiM8-KhAkLA?embedVersion=1&amp;embedWidth=330&amp;embedHeight=186&amp;identity__email=dschut%40outlook.com",
         categories: [CAT_FEATURED, CAT_OPENBADGES],
     },
+    "Badge: Badgr Webinar Attendee - May 2020": {
+        type: TYPE_BADGR,
+        src: "https://api.badgr.io/public/assertions/tSvumhqeSR2-RjsQvbIVmw?embedVersion=1&amp;embedWidth=330&amp;embedHeight=186&amp;identity__email=dschut%40outlook.com",
+        categories: [CAT_FEATURED, CAT_OPENBADGES],
+    },
     "test1": {
         type: TYPE_LOCAL,
         categories: [CAT_TEST],
