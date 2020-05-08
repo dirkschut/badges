@@ -1,5 +1,6 @@
 const TYPE_BADGR = 0;
 const TYPE_LOCAL = 1;
+const TYPE_BADGR_CUSTOM = 2;
 
 const CAT_FEATURED = "Featured";
 const CAT_OPENBADGES = "Open Badges";
@@ -8,13 +9,15 @@ const CAT_TEST = "Test";
 //The data of all the badges
 const badgeData = {
     "Badge: Badgr Web Explorer": {
-        type: TYPE_BADGR,
-        src: "https://api.badgr.io/public/assertions/nhztqxJeT1OaiM8-KhAkLA?embedVersion=1&amp;embedWidth=330&amp;embedHeight=186&amp;identity__email=dschut%40outlook.com",
+        type: TYPE_BADGR_CUSTOM,
+        id: "nhztqxJeT1OaiM8-KhAkLA",
+        awarded: "Apr 30, 2020",
         categories: [CAT_FEATURED, CAT_OPENBADGES],
     },
     "Badge: Badgr Webinar Attendee - May 2020": {
-        type: TYPE_BADGR,
-        src: "https://api.badgr.io/public/assertions/tSvumhqeSR2-RjsQvbIVmw?embedVersion=1&amp;embedWidth=330&amp;embedHeight=186&amp;identity__email=dschut%40outlook.com",
+        type: TYPE_BADGR_CUSTOM,
+        id: "tSvumhqeSR2-RjsQvbIVmw",
+        awarded: "May 6, 2020",
         categories: [CAT_FEATURED, CAT_OPENBADGES],
     },
     "test1": {
@@ -55,6 +58,13 @@ function renderBadges(badgesToRender){
             case TYPE_LOCAL:
                 badgesString += "<div class='col-md-4 myBadge testBadge'><h3>" + badgeName + "</h3>";
                 break;
+            case TYPE_BADGR_CUSTOM:
+                badgesString += "<div class='col-md-4 myBadge'>";
+                badgesString += "<img class='badgeImg' src='https://api.badgr.io/public/assertions/" + badgesToRender[badgeName].id + "/image'>";
+                badgesString += "<h3>" + badgeName + "</h3>";
+                badgesString += "<p>Awarded: " + badgesToRender[badgeName].awarded + "</p>";
+                badgesString += "<a class='btn btn-primary' role='button' target='_blank' href='https://badgecheck.io?url=https://api.badgr.io/public/assertions/" + badgesToRender[badgeName].id + "?identity__email=dschut%40outlook.com'>Verify</a>";
+                break;
         }
 
         badgesString += "<ul class='badgesCategories'>"
@@ -65,6 +75,7 @@ function renderBadges(badgesToRender){
 
         badgesString += "</div>";
     }
+
 
     badgesString += "</div>";
     $("main").html(badgesString);
