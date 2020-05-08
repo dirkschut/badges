@@ -1,10 +1,16 @@
 const TYPE_BADGR = 0;
 const TYPE_LOCAL = 1;
 const TYPE_BADGR_CUSTOM = 2;
+const TYPE_BADGECOLLECT_CUSTOM = 3;
 
 const CAT_FEATURED = "Featured";
 const CAT_OPENBADGES = "Open Badges";
+const CAT_COMPSCI = "Computer Science";
 const CAT_TEST = "Test";
+
+const BADGECOLLECTPROFILE = "1Cd3Cf1m1hPZQBhFkNeFGqNocrfRDWo1ns";
+const EMAIL = "dschut@outlook.com";
+const EMAILFORURL = "dschut%40outlook.com";
 
 //The data of all the badges
 const badgeData = {
@@ -19,6 +25,12 @@ const badgeData = {
         id: "tSvumhqeSR2-RjsQvbIVmw",
         awarded: "May 6, 2020",
         categories: [CAT_FEATURED, CAT_OPENBADGES],
+    },
+    "Formulieren maken met VBA (Visual basic for applications)": {
+        type: TYPE_BADGECOLLECT_CUSTOM,
+        id: "729e5b1f9f2f0439c8bd4635f5fa072c",
+        awarded: "May 4, 2020",
+        categories: [CAT_FEATURED, CAT_COMPSCI],
     },
     "test1": {
         type: TYPE_LOCAL,
@@ -63,7 +75,15 @@ function renderBadges(badgesToRender){
                 badgesString += "<img class='badgeImg' src='https://api.badgr.io/public/assertions/" + badgesToRender[badgeName].id + "/image'>";
                 badgesString += "<h3>" + badgeName + "</h3>";
                 badgesString += "<p>Awarded: " + badgesToRender[badgeName].awarded + "</p>";
-                badgesString += "<a class='btn btn-primary' role='button' target='_blank' href='https://badgecheck.io?url=https://api.badgr.io/public/assertions/" + badgesToRender[badgeName].id + "?identity__email=dschut%40outlook.com'>Verify</a>";
+                badgesString += "<a class='btn btn-primary' role='button' target='_blank' href='https://badgecheck.io?url=https://api.badgr.io/public/assertions/" + badgesToRender[badgeName].id + "?identity__email=" + EMAILFORURL + "'>Verify</a>";
+                badgesString += "<a class='btn btn-secondary' role='button' target='_blank' href='https://badgrteam.badgr.com/public/assertions/" + badgesToRender[badgeName].id + "?identity__email=" + EMAILFORURL + "'>Badgr</a>";
+                break;
+            case TYPE_BADGECOLLECT_CUSTOM:
+                badgesString += "<div class='col-md-4 myBadge'>";
+                badgesString += "<h3>" + badgeName + "</h3>";
+                badgesString += "<p>Awarded: " + badgesToRender[badgeName].awarded + "</p>";
+                badgesString += "<a class='btn btn-primary' role='button' target='_blank'>Verify</a>";
+                badgesString += "<a class='btn btn-secondary' role='button' target='_blank' href='https://badgecollect.app/profile/" + BADGECOLLECTPROFILE + "?assertion=" + badgesToRender[badgeName].id + "'>BadgeCollect</a>";
                 break;
         }
 
