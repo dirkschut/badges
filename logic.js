@@ -87,11 +87,17 @@ function renderBadges(badgesToRender){
                 break;
         }
 
-        badgesString += "<ul class='badgesCategories'>"
+        badgesString += "<div class='badgesCategories'>";
+        var first = true;
         for(category in badgesToRender[badgeName].categories){
-            badgesString += "<li>" + badgesToRender[badgeName].categories[category] + "</li>";
+            if(first){
+                first = false;
+            }else{
+                badgesString += ", ";
+            }
+            badgesString += "<a href='#' onclick='renderBadgesCategory(\"" + badgesToRender[badgeName].categories[category] + "\")'>" + badgesToRender[badgeName].categories[category] + "</a>";
         }
-        badgesString += "</ul>";
+        badgesString += "</div>";
 
         badgesString += "</div>";
     }
