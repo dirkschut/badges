@@ -142,6 +142,7 @@ function renderBadgesCategory(category){
     $("main").html(pageString);
 }
 
+//Render all the badges without a filter
 function renderAllBadges(){
     let pageString = "<h1>All Badges</h1>";
     pageString += getBadgesString(badgeData);
