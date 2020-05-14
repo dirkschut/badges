@@ -58,9 +58,9 @@ const badgeData = {
     },
 };
 
-//Renders the given badges on the site
-function renderBadges(badgesToRender){
-    var badgesString = "<h1>Badges Earned by Dirk Schut</h1><div class='row'>";
+//Returns the HTML for the given badges array
+function getBadgesString(badgesToRender){
+    var badgesString = "<div class='row'>";
 
     for(badgeName in badgesToRender){
         switch(badgesToRender[badgeName].type){
@@ -95,7 +95,7 @@ function renderBadges(badgesToRender){
             }else{
                 badgesString += ", ";
             }
-            badgesString += "<a href='#' onclick='renderBadgesCategory(\"" + badgesToRender[badgeName].categories[category] + "\")'>" + badgesToRender[badgeName].categories[category] + "</a>";
+            badgesString += "<a href='#' onclick='onCategoryClick(\"" + badgesToRender[badgeName].categories[category] + "\")'>" + badgesToRender[badgeName].categories[category] + "</a>";
         }
         badgesString += "</div>";
 
@@ -104,14 +104,60 @@ function renderBadges(badgesToRender){
 
 
     badgesString += "</div>";
-    $("main").html(badgesString);
+    return badgesString;
+}
+
+//Returns the badges object of the badges with the given category
+function getBadgesByCategory(category){
+    let tempBadges = {};
+    for(badgeName in badgeData){
+        if(badgeData[badgeName].categories.includes(category)){
+            tempBadges[badgeName] = badgeData[badgeName];
+        }
+    }
+    return tempBadges;
+}
+
+//Renders the given badges on the site
+function renderHome(){
+    let pageString = "<h1>Badges earned by Dirk Schut</h1>";
+    pageString += "<p>This is a portfolio of the badges I have earned in the open badges system.</p>";
+    pageString += "<h2>Featured Badges</h2>";
+    pageString += getBadgesString(getBadgesByCategory(CAT_FEATURED));
+    $("main").html(pageString);
 }
 
 //Renders the about page
 function renderAbout(){
-    var aboutString = "<h1>About</h1>";
+    let aboutString = "<h1>About</h1>";
     aboutString += "<p>This is a project by me, <a href='https://github.com/mrDLSable'>Dirk Schut</a>, to showcase my <a href='https://openbadges.org/'> Open Badges</a> badges, and to show that I have some competency in web development for the <a href='https://badgecollect.app/badges/28f940d61f913065a2a0aa34c2b3c1cd'>Introductie Web & Mobile</a> (Introduction Web & Mobile) badge.</p>";
     $("main").html(aboutString);
+}
+
+//Render the badges of a given category
+function renderBadgesCategory(category){
+    let pageString = "<h1>" + category + "</h1>";
+    pageString += getBadgesString(getBadgesByCategory(category));
+    $("main").html(pageString);
+}
+
+//Sets the category and calls the loadPage when a category is clicked
+function onCategoryClick(category){
+    console.log(category);
+    if(checkCategoryHasBadges(category)){
+        localStorage.setItem("category", category);
+        loadPage("category");
+    }
+}
+
+//Check to see if a given category has badges
+function checkCategoryHasBadges(category){
+    for(badgeName in badgeData){
+        if(badgeData[badgeName].categories.includes(category)){
+            return true;
+        }
+    }
+    return false;
 }
 
 //Load the page with the given page ID
@@ -119,15 +165,21 @@ function loadPage(pageID){
     console.log("loading page: " + pageID);
     localStorage.setItem("pageID", pageID)
     switch(pageID){
-        case "allBadges":
-            renderBadges(badgeData);
+        case "home":
+            renderHome();
             break;
         case "about":
             renderAbout();
             break;
+        case "category":
+            if(!checkCategoryHasBadges(localStorage.getItem("category"))){
+                localStorage.setItem("category", CAT_FEATURED);
+            }
+            renderBadgesCategory(localStorage.getItem("category"));
+            break;
         default:
             console.log("Unknown page ID: " + pageID + ".");
-            loadPage("allBadges");
+            loadPage("home");
             break;
     }
 }
