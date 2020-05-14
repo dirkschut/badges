@@ -141,6 +141,12 @@ function renderBadgesCategory(category){
     $("main").html(pageString);
 }
 
+function renderAllBadges(){
+    let pageString = "<h1>All Badges</h1>";
+    pageString += getBadgesString(badgeData);
+    $("main").html(pageString);
+}
+
 //Sets the category and calls the loadPage when a category is clicked
 function onCategoryClick(category){
     console.log(category);
@@ -176,6 +182,9 @@ function loadPage(pageID){
                 localStorage.setItem("category", CAT_FEATURED);
             }
             renderBadgesCategory(localStorage.getItem("category"));
+            break;
+        case "allBadges":
+            renderAllBadges();
             break;
         default:
             console.log("Unknown page ID: " + pageID + ".");
