@@ -131,6 +131,7 @@ function renderHome(){
 function renderAbout(){
     let aboutString = "<h1>About</h1>";
     aboutString += "<p>This is a project by me, <a href='https://github.com/mrDLSable'>Dirk Schut</a>, to showcase my <a href='https://openbadges.org/'> Open Badges</a> badges, and to show that I have some competency in web development for the <a href='https://badgecollect.app/badges/28f940d61f913065a2a0aa34c2b3c1cd'>Introductie Web & Mobile</a> (Introduction Web & Mobile) badge.</p>";
+    aboutString += "<h2>Verifying BadgeCollect badges</h2><p>Right now it is not possible to verify <a href='https://badgecollect.app/'>badgecollect</a> badges with the <a href='https://badgecheck.io/'>badgecheck</a> system. I have been in contact with the team from badgecollect and they tell me that this is something they're working on.</p>";
     $("main").html(aboutString);
 }
 
