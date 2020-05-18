@@ -34,35 +34,52 @@ const badgeData = {
     },
     "test1": {
         type: TYPE_LOCAL,
+        awarded: Date.parse("Jan 1, 2020"),
         categories: [CAT_TEST],
     },
     "test2": {
         type: TYPE_LOCAL,
+        awarded: Date.parse("Jan 1, 2020"),
         categories: [CAT_TEST],
     },
     "test3": {
         type: TYPE_LOCAL,
+        awarded: Date.parse("Jan 1, 2020"),
         categories: [CAT_TEST, CAT_FEATURED],
     },
     "test5": {
         type: TYPE_LOCAL,
+        awarded: Date.parse("Jan 1, 2020"),
         categories: [CAT_TEST],
     },
     "test6": {
         type: TYPE_LOCAL,
+        awarded: Date.parse("Jan 1, 2020"),
         categories: [CAT_TEST],
     },
     "test7": {
         type: TYPE_LOCAL,
+        awarded: Date.parse("Jan 1, 2020"),
         categories: [CAT_TEST],
     },
 };
 
 //Returns the HTML for the given badges array
 function getBadgesString(badgesToRender){
-    var badgesString = "<div class='row'>";
 
+    //Sort badges by date in descending order
+    let sortable = [];
     for(badgeName in badgesToRender){
+        sortable.push([badgeName, badgesToRender[badgeName].awarded]);
+    }
+    sortable.sort(function(a, b){
+        return b[1] - a[1];
+    });
+
+    let badgesString = "<div class='row'>";
+
+    for(tempID in sortable){
+        let badgeName = sortable[tempID][0];
         switch(badgesToRender[badgeName].type){
             case TYPE_BADGR:
                 badgesString += "<div class='col-md-4 myBadge'><iframe class='badgrBadge' src='" + badgesToRender[badgeName].src + "' title='" + badgeName + "'></iframe>";
@@ -88,7 +105,7 @@ function getBadgesString(badgesToRender){
         }
 
         badgesString += "<div class='badgesCategories'>";
-        var first = true;
+        let first = true;
         for(category in badgesToRender[badgeName].categories){
             if(first){
                 first = false;
