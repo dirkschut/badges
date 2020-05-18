@@ -144,6 +144,7 @@ function renderHome(){
     pageString += "<p>This is a portfolio of the badges I have earned in the open badges system.</p>";
     pageString += "<h2>Featured Badges</h2>";
     pageString += getBadgesString(getBadgesByCategory(CAT_FEATURED));
+    //I could have used document.getElementById("main").innerHTML instead
     $("main").html(pageString);
 }
 
@@ -217,6 +218,7 @@ function loadPage(pageID){
 }
 
 //Waits for the page to be loaded
+//I could have used a self-executing function or a function with a timeout that checks document.readyState
 $(document).ready(function() {
     loadPage(localStorage.getItem("pageID"));
 });
