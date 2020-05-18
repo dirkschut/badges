@@ -86,6 +86,7 @@ function getBadgesString(badgesToRender){
                 break;
             case TYPE_LOCAL:
                 badgesString += "<div class='col-md-4 myBadge testBadge'><h3>" + badgeName + "</h3>";
+                badgesString += "<p>Awarded: " + new Date(badgesToRender[badgeName].awarded).toDateString() + "</p>";
                 break;
             case TYPE_BADGR_CUSTOM:
                 badgesString += "<div class='col-md-4 myBadge'>";
@@ -148,6 +149,7 @@ function renderHome(){
 function renderAbout(){
     let aboutString = "<h1>About</h1>";
     aboutString += "<p>This is a project by me, <a href='https://github.com/mrDLSable'>Dirk Schut</a>, to showcase my <a href='https://openbadges.org/'> Open Badges</a> badges, and to show that I have some competency in web development for the <a href='https://badgecollect.app/badges/28f940d61f913065a2a0aa34c2b3c1cd'>Introductie Web & Mobile</a> (Introduction Web & Mobile) badge.</p>";
+    aboutString += "<p>Regarding the test badges: They are there purely so that the system feels a bit more filled and for testing purposes. They will be removed once I earn more proper badges.</p>";
     aboutString += "<h2>Verifying BadgeCollect badges</h2><p>Right now it is not possible to verify <a href='https://badgecollect.app/'>badgecollect</a> badges with the <a href='https://badgecheck.io/'>badgecheck</a> system. I have been in contact with the team from badgecollect and they tell me that this is something they're working on.</p>";
     $("main").html(aboutString);
 }
