@@ -17,19 +17,19 @@ const badgeData = {
     "Badge: Badgr Web Explorer": {
         type: TYPE_BADGR_CUSTOM,
         id: "nhztqxJeT1OaiM8-KhAkLA",
-        awarded: "Apr 30, 2020",
+        awarded: Date.parse("Apr 30, 2020"),
         categories: [CAT_FEATURED, CAT_OPENBADGES],
     },
     "Badge: Badgr Webinar Attendee - May 2020": {
         type: TYPE_BADGR_CUSTOM,
         id: "tSvumhqeSR2-RjsQvbIVmw",
-        awarded: "May 6, 2020",
+        awarded: Date.parse("May 6, 2020"),
         categories: [CAT_FEATURED, CAT_OPENBADGES],
     },
     "Formulieren maken met VBA (Visual basic for applications)": {
         type: TYPE_BADGECOLLECT_CUSTOM,
         id: "729e5b1f9f2f0439c8bd4635f5fa072c",
-        awarded: "May 4, 2020",
+        awarded: Date.parse("May 4, 2020"),
         categories: [CAT_FEATURED, CAT_COMPSCI],
     },
     "test1": {
@@ -74,14 +74,14 @@ function getBadgesString(badgesToRender){
                 badgesString += "<div class='col-md-4 myBadge'>";
                 badgesString += "<img class='badgeImg' src='https://api.badgr.io/public/assertions/" + badgesToRender[badgeName].id + "/image'>";
                 badgesString += "<h3>" + badgeName + "</h3>";
-                badgesString += "<p>Awarded: " + badgesToRender[badgeName].awarded + "</p>";
+                badgesString += "<p>Awarded: " + new Date(badgesToRender[badgeName].awarded).toDateString() + "</p>";
                 badgesString += "<a class='btn btn-primary' role='button' target='_blank' href='https://badgecheck.io?url=https://api.badgr.io/public/assertions/" + badgesToRender[badgeName].id + "?identity__email=" + EMAILFORURL + "'>Verify</a>";
                 badgesString += "<a class='btn btn-secondary' role='button' target='_blank' href='https://badgrteam.badgr.com/public/assertions/" + badgesToRender[badgeName].id + "?identity__email=" + EMAILFORURL + "'>Badgr</a>";
                 break;
             case TYPE_BADGECOLLECT_CUSTOM:
                 badgesString += "<div class='col-md-4 myBadge'>";
                 badgesString += "<h3>" + badgeName + "</h3>";
-                badgesString += "<p>Awarded: " + badgesToRender[badgeName].awarded + "</p>";
+                badgesString += "<p>Awarded: " + new Date(badgesToRender[badgeName].awarded).toDateString() + "</p>";
                 badgesString += "<a class='btn btn-primary' role='button' target='_blank'>Verify</a>";
                 badgesString += "<a class='btn btn-secondary' role='button' target='_blank' href='https://badgecollect.app/profile/" + BADGECOLLECTPROFILE + "?assertion=" + badgesToRender[badgeName].id + "'>BadgeCollect</a>";
                 break;
