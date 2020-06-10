@@ -18,12 +18,18 @@ const badgeData = {
         type: TYPE_BADGR_CUSTOM,
         id: "nhztqxJeT1OaiM8-KhAkLA",
         awarded: Date.parse("Apr 30, 2020"),
-        categories: [CAT_FEATURED, CAT_OPENBADGES],
+        categories: [CAT_OPENBADGES],
     },
     "Badge: Badgr Webinar Attendee - May 2020": {
         type: TYPE_BADGR_CUSTOM,
         id: "tSvumhqeSR2-RjsQvbIVmw",
         awarded: Date.parse("May 6, 2020"),
+        categories: [CAT_OPENBADGES],
+    },
+    "Badge: Badgr Webinar Attendee - June 2020": {
+        type: TYPE_BADGR_CUSTOM,
+        id: "sn7pMu7qT6GvTDVxqK2gSQ",
+        awarded: Date.parse("June 3, 2020"),
         categories: [CAT_FEATURED, CAT_OPENBADGES],
     },
     "Formulieren maken met VBA (Visual basic for applications)": {
@@ -47,35 +53,12 @@ const badgeData = {
         icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+PGNpcmNsZSBmaWxsPSIjZmY4NTFiIiBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLDEyKSBzY2FsZSgwLjkpIHRyYW5zbGF0ZSgtMTIsLTEyKSIgY3g9IjEyIiBjeT0iMTIiIHI9IjEyIj48L2NpcmNsZT48Y2lyY2xlIGZpbGw9IiNmZjg1MWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLDEyKSBzY2FsZSgwLjgpIHRyYW5zbGF0ZSgtMTIsLTEyKSIgY3g9IjEyIiBjeT0iMTIiIHI9IjEyIj48L2NpcmNsZT48cGF0aCBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJzY2FsZSgwLjA0NTQ1LCAtMC4wNDU0NSkgdHJhbnNsYXRlKDcsIC00NTUuNSkgdHJhbnNsYXRlKDI2NCwyMDApIHNjYWxlKDAuNykgdHJhbnNsYXRlKC0yNjQsLTIwMCkiIGQ9Ik04MCAzNTJoMTZoMzIwaDE2di0xNnYtMjAxbDM2LjUgLTM3YzcuMjQzMTYgLTcuMjQzMTYgMTEuNSAtMTcuMjYxNyAxMS41IC0yNy41YzAgLTIxLjE0MTYgLTE3LjM1ODQgLTM4LjUgLTM4LjUgLTM4LjVoLTM3MWMtMjEuMTQxNiAwIC0zOC41IDE3LjM1ODQgLTM4LjUgMzguNWMwIDEwLjIzODMgNC4yNTY4NCAyMC4yNTY4IDExLjUgMjcuNWwzNi41IDM3djIwMXYxNnpNMTEyIDMyMHYtMTc2aDI4OHYxNzZoLTI4OHpNMTAzIDExMgpsLTM3IC0zNi41Yy0xLjIzNzMgLTEuMjM3MyAtMiAtMy4yMzgyOCAtMiAtNWMwIC0zLjg1MDU5IDIuNjQ5NDEgLTYuNSA2LjUgLTYuNWgzNzFjMy44NTA1OSAwIDYuNSAyLjY0OTQxIDYuNSA2LjVjMCAxLjc2MTcyIC0wLjc2MjY5NSAzLjc2MjcgLTIgNWwtMzcgMzYuNWgtMzA2eiI+PC9wYXRoPjwvc3ZnPg==",
         categories: [CAT_FEATURED, CAT_COMPSCI],
     },
-    "test1": {
-        type: TYPE_LOCAL,
-        awarded: Date.parse("Jan 1, 2020"),
-        categories: [CAT_TEST],
-    },
-    "test2": {
-        type: TYPE_LOCAL,
-        awarded: Date.parse("Jan 1, 2020"),
-        categories: [CAT_TEST],
-    },
-    "test3": {
-        type: TYPE_LOCAL,
-        awarded: Date.parse("Jan 1, 2020"),
-        categories: [CAT_TEST, CAT_FEATURED],
-    },
-    "test5": {
-        type: TYPE_LOCAL,
-        awarded: Date.parse("Jan 1, 2020"),
-        categories: [CAT_TEST],
-    },
-    "test6": {
-        type: TYPE_LOCAL,
-        awarded: Date.parse("Jan 1, 2020"),
-        categories: [CAT_TEST],
-    },
-    "test7": {
-        type: TYPE_LOCAL,
-        awarded: Date.parse("Jan 1, 2020"),
-        categories: [CAT_TEST],
+    "Introductie Linux CLI": {
+        type: TYPE_BADGECOLLECT_CUSTOM,
+        id: "046fb774c238a11ccbbf161171757fed",
+        awarded: Date.parse("June 10, 2020"),
+        icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+PGNpcmNsZSBmaWxsPSIjZmY4NTFiIiBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiPjwvY2lyY2xlPjxjaXJjbGUgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLDEyKSBzY2FsZSgwLjkpIHRyYW5zbGF0ZSgtMTIsLTEyKSIgY3g9IjEyIiBjeT0iMTIiIHI9IjEyIj48L2NpcmNsZT48Y2lyY2xlIGZpbGw9IiNmZjg1MWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLDEyKSBzY2FsZSgwLjgpIHRyYW5zbGF0ZSgtMTIsLTEyKSIgY3g9IjEyIiBjeT0iMTIiIHI9IjEyIj48L2NpcmNsZT48cGF0aCBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJzY2FsZSgwLjA0NTQ1LCAtMC4wNDU0NSkgdHJhbnNsYXRlKDcsIC00NTUuNSkgdHJhbnNsYXRlKDI2NCwyMDApIHNjYWxlKDAuNykgdHJhbnNsYXRlKC0yNjQsLTIwMCkiIGQ9Ik02NCAzNjhoMTZoMzUyaDE2di0xNnYtMzIwdi0xNmgtMTZoLTM1MmgtMTZ2MTZ2MzIwdjE2ek05NiAzMzZ2LTMyaDMyMHYzMmgtMzIwek05NiAyNzJ2LTIyNGgzMjB2MjI0aC0zMjB6TTE3OS41IDIyNy41bDU2IC01NmwxMSAtMTEuNWwtMTEgLTExLjVsLTU2IC01NmwtMjMgMjNsNDQuNSA0NC41bC00NC41IDQ0LjV6TTI1NiAxMjhoOTZ2LTMyaC05NnYzMnoiPjwvcGF0aD48L3N2Zz4=",
+        categories: [CAT_FEATURED, CAT_COMPSCI],
     },
 };
 
